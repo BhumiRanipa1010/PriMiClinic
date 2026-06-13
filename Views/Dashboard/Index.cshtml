@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+
+    <h2 class="page-title mb-4">
+        📊 PriMi Clinic Dashboard
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow dashboard-card">
+                <div class="card-body text-center">
+                    <h1>@ViewBag.TotalDoctors</h1>
+                    <h5>Doctors</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow dashboard-card">
+                <div class="card-body text-center">
+                    <h1>@ViewBag.TotalPatients</h1>
+                    <h5>Patients</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow dashboard-card">
+                <div class="card-body text-center">
+                    <h1>@ViewBag.TotalAppointments</h1>
+                    <h5>Appointments</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

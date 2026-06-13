@@ -1,0 +1,107 @@
+﻿@using PriMiClinic.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "PriMi Clinic";
+    var currentUser = await UserManager.GetUserAsync(User);
+}
+<div class="hero-section text-center py-5">
+    <div class="container">
+
+        <h1 class="display-4 fw-bold">
+            🏥 PriMi Clinic
+        </h1>
+
+        <p class="lead mt-3">
+            Smart Healthcare Management System
+        </p>
+
+        <div class="mt-4">
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <div class="mt-4">
+                    <h3>
+                        Welcome Back,
+                        @(currentUser?.FullName) 👋
+                    </h3>
+
+                    <p>
+                        Manage your clinic efficiently.
+                    </p>
+
+                    <a asp-controller="Dashboard"
+                    asp-action="Index"
+                    class="btn btn-primary btn-lg">
+                        Go To Dashboard
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="mt-4">
+                    <a asp-controller="Account"
+                    asp-action="Register"
+                    class="btn btn-primary btn-lg me-2">
+                        Register
+                    </a>
+
+                    <a asp-controller="Account"
+                    asp-action="Login"
+                    class="btn btn-outline-light btn-lg">
+                        Login
+                    </a>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-5">
+
+    <div class="row text-center">
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2>👨‍⚕️</h2>
+                    <h5>Doctors</h5>
+                    <p>Manage doctor records</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2>🧑‍🤝‍🧑</h2>
+                    <h5>Patients</h5>
+                    <p>Patient information system</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2>📅</h2>
+                    <h5>Appointments</h5>
+                    <p>Appointment scheduling</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2>💊</h2>
+                    <h5>Prescriptions</h5>
+                    <p>Digital prescription records</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
